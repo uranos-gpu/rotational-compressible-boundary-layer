@@ -1,12 +1,14 @@
 # Rotational Compressible Boundary Layer
 
-This repository collects reference solutions and datasets for **rotational, compressible boundary-layer flows**.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17870172.svg)](https://doi.org/10.5281/zenodo.17870172)
+
+This repository collects **reference solutions and datasets** for **rotational, compressible boundary-layer flows**, intended for inflow generation, validation, and theoretical analysis.
 
 ---
 
 ## Repository Layout
 
-At the top level you will find a set of **case directories**:
+At the top level you will find the **case directories**:
 
 - `MR00/`
 - `MR02/`
@@ -14,61 +16,80 @@ At the top level you will find a set of **case directories**:
 - `MR06/`
 - …
 
-Each case directory is **self-contained** and contain a specific ratational Mach number regime.
+Each directory contains a **self-contained laminar compressible boundary-layer solution** for a specific **rotational Mach number** regime.
 
-> 🔎 **Tip:** open any `MRxx/` directory and inspect the file headers/comments to see the exact column layout and units used in that case.
-
----
-
-The files are stored in simple, script-friendly formats, so they can be read from:
-
-- **Python** (e.g. with `numpy.loadtxt` / `pandas.read_csv`),
-- **MATLAB/Octave** (e.g. `readmatrix`, `dlmread`),
-- **Fortran/C++** with standard formatted or unformatted I/O.
+> 🔎 **Tip:** open any `MRxx/` directory and inspect the headers in the data files to see the exact column layout and units.
 
 ---
 
-These boundary-layer datasets have been designed with the **URANOS solver**.
+## Usage
 
-For details on URANOS and its numerics, see the main repository:
+The datasets are stored in simple, script-friendly formats and can be read from:
 
-- 👉 https://github.com/uranos-gpu/uranos-gpu
+- **Python** (`numpy.loadtxt`, `pandas.read_csv`)
+- **MATLAB/Octave** (`readmatrix`, `dlmread`)
+- **Fortran/C++** using formatted/unformatted I/O
 
-If you use these data together with URANOS in scientific work, please also cite the URANOS CPC papers (see “How to Cite” below).
+They are suitable for:
+
+- inflow conditions in high-fidelity DNS/LES/WMLES,
+- validation of compressible boundary-layer models,
+- stability and transition studies,
+- testing wall-transformation and compressibility models.
+
+---
+
+## Relation to URANOS
+
+These boundary-layer datasets were generated for use with the **URANOS solver** for compressible wall-bounded flows.
+
+Main solver repository:
+
+👉 https://github.com/uranos-gpu/uranos-gpu
+
+If you use these datasets with URANOS, please consider citing the URANOS CPC papers (see below).
 
 ---
 
 ## How to Cite
 
-If this repository helps your research, please consider citing:
+If this repository helps your research, please cite:
 
-- **URANOS** (original solver description)  
-  F. De Vanna et al., *Computer Physics Communications* (2023), DOI: 10.1016/j.cpc.2023.108717.
+**Dataset DOI**
 
-- **URANOS-2.0 / extended capabilities**  
-  F. De Vanna et al., *Computer Physics Communications* (2024), DOI: 10.1016/j.cpc.2024.109285.
+- De Vanna & Regazzo (2025). *Rotational Compressible Boundary Layer Dataset.*  
+  DOI: [10.5281/zenodo.17870172](https://doi.org/10.5281/zenodo.17870172)
 
-If you build on, extend, or re-distribute these specific rotational boundary-layer datasets, you are encouraged to:
+**URANOS solver**
 
-- cite the above URANOS papers, and
-- reference this GitHub repository by URL and commit hash.
+- F. De Vanna et al., *Computer Physics Communications* (2023),  
+  DOI: 10.1016/j.cpc.2023.108717  
+- F. De Vanna et al., *Computer Physics Communications* (2024),  
+  DOI: 10.1016/j.cpc.2024.109285
+
+If you extend or redistribute the datasets, please reference this repository and the appropriate DOI.
 
 ---
 
 ## License
 
+This project is released under the **MIT License**, a permissive open-source license allowing reuse, modification, and redistribution with attribution.
+
+See the [`LICENSE`](./LICENSE) file for the full text.
+
 ---
 
 ## Contact & Contributions
 
-Maintainer: **Francesco De Vanna**  and **Stefano Regazzo**
+Maintainers: **Francesco De Vanna**, **Stefano Regazzo**  
 Affiliation: Department of Industrial Engineering (DII), University of Padova  
 Email: `francesco.devanna@unipd.it`
 
-Contributions, bug reports, and suggestions are welcome.  
-Feel free to open an issue or a pull request if you:
+Contributions, issues, and suggestions are welcome.  
+Feel free to open an issue or pull request if you:
 
-- spot mistakes in the profiles or documentation,
-- have scripts for reading or visualizing the datasets that could help other users.
+- identify inconsistencies in the datasets,
+- want to add new Mach/Re/temperature regimes,
+- have scripts or visualizations useful for other users.
 
 ---
